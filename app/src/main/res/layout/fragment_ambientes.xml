@@ -4,64 +4,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cinza_claro"
     tools:context=".ui.ambientes.AmbientesFragment">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
+    <ImageButton
+        android:id="@+id/imgbtnEstudos"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="15dp"
+        android:background="@android:color/transparent"
+        android:paddingBottom="25dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/classroom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnJogos"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnFestas" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
+    <ImageButton
+        android:id="@+id/imgbtnJogos"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="15dp"
+        android:background="@android:color/transparent"
+        android:paddingBottom="25dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sinuca"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnEstudos"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnPiscina" />
 
-            <Button
-                android:id="@+id/btnAcademia"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:padding="30dp"
-                android:text="@string/academia"
-                android:textAlignment="center"
-                android:textColor="@color/white" />
+    <ImageButton
+        android:id="@+id/imgbtnAcademia"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="15dp"
+        android:background="@android:color/transparent"
+        android:paddingBottom="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/peso"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtnPiscina"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnQuadra"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-            <Button
-                android:id="@+id/btnQuadra"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:padding="30dp"
-                android:text="@string/quadra"
-                android:textAlignment="center"
-                android:textColor="@color/white" />
-        </TableRow>
+    <ImageButton
+        android:id="@+id/imgbtnQuadra"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="15dp"
+        android:background="@android:color/transparent"
+        android:paddingBottom="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/quadra"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtnFestas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnAcademia"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
+    <ImageButton
+        android:id="@+id/imgbtnPiscina"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="15dp"
+        android:background="@android:color/transparent"
+        android:paddingBottom="25dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/piscina"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtnJogos"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnFestas"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnAcademia" />
 
-            <Button
-                android:id="@+id/btnPiscina"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:padding="30dp"
-                android:text="@string/piscina"
-                android:textAlignment="center"
-                android:textColor="@color/white" />
+    <ImageButton
+        android:id="@+id/imgbtnFestas"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="15dp"
+        android:background="@android:color/transparent"
+        android:paddingBottom="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/mesa"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtnEstudos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnPiscina"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnQuadra" />
 
-            <Button
-                android:id="@+id/btnSalao"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:padding="30dp"
-                android:text="@string/salao"
-                android:textAlignment="center"
-                android:textColor="@color/white" />
-        </TableRow>
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/academia"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnAcademia"
+        app:layout_constraintEnd_toEndOf="@+id/imgbtnAcademia"
+        app:layout_constraintStart_toStartOf="@+id/imgbtnAcademia" />
 
-    </TableLayout>
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quadra"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnQuadra"
+        app:layout_constraintEnd_toEndOf="@+id/imgbtnQuadra"
+        app:layout_constraintStart_toStartOf="@+id/imgbtnQuadra" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/piscina"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnPiscina"
+        app:layout_constraintEnd_toEndOf="@+id/imgbtnPiscina"
+        app:layout_constraintStart_toStartOf="@+id/imgbtnPiscina" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/festas"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnFestas"
+        app:layout_constraintEnd_toEndOf="@+id/imgbtnFestas"
+        app:layout_constraintStart_toStartOf="@+id/imgbtnFestas" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/jogos"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnJogos"
+        app:layout_constraintEnd_toEndOf="@+id/imgbtnJogos"
+        app:layout_constraintStart_toStartOf="@+id/imgbtnJogos" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/estudos"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnEstudos"
+        app:layout_constraintEnd_toEndOf="@+id/imgbtnEstudos"
+        app:layout_constraintStart_toStartOf="@+id/imgbtnEstudos" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

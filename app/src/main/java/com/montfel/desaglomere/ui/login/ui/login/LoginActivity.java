@@ -22,10 +22,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.montfel.desaglomere.ui.login.R;
-import com.montfel.desaglomere.ui.login.ui.login.LoginViewModel;
-import com.montfel.desaglomere.ui.login.ui.login.LoginViewModelFactory;
-import com.montfel.desaglomere.ui.login.databinding.ActivityLoginBinding;
+import com.montfel.desaglomere.R;
+import com.montfel.desaglomere.databinding.ActivityLoginBinding;
+
 
 public class LoginActivity extends AppCompatActivity {
 

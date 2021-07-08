@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
+import com.montfel.desaglomere.R;
 import com.montfel.desaglomere.ui.login.data.LoginRepository;
 import com.montfel.desaglomere.ui.login.data.Result;
 import com.montfel.desaglomere.ui.login.data.model.LoggedInUser;
-import com.montfel.desaglomere.ui.login.R;
 
 public class LoginViewModel extends ViewModel {
 
