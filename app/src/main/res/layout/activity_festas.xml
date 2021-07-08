@@ -5,46 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="15dp"
+    android:orientation="vertical"
     tools:context=".ui.festas.FestasActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        tools:layout_editor_absoluteX="219dp"
-        tools:layout_editor_absoluteY="535dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rgPredios" />
-
-    <TextView
         android:id="@+id/tvDataFestas"
-        android:layout_width="363dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1"
-        android:drawableStart="@drawable/ic_baseline_calendar_today_24"
+        android:gravity="center"
         android:onClick="openDatePicker"
-        android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="20dp"
+        app:drawableStartCompat="@drawable/ic_baseline_calendar_today_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvHorarioFestas"
-        android:layout_width="363dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_weight="2"
-        android:drawableStart="@drawable/ic_time_24"
+        android:gravity="center"
         android:onClick="openTimePicker"
-        android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="20dp"
+        app:drawableStartCompat="@drawable/ic_time_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDataFestas" />
+        app:layout_constraintTop_toBottomOf="@id/tvDataFestas" />
 
     <View
         android:id="@+id/divider"
@@ -54,33 +41,20 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHorarioFestas"/>
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        tools:layout_editor_absoluteX="219dp"
-        tools:layout_editor_absoluteY="535dp"
-        android:textSize="20dp"
-        android:text="Escolha o edifício"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider" />
+        app:layout_constraintTop_toBottomOf="@id/tvHorarioFestas" />
 
     <RadioGroup
         android:id="@+id/rgPredios"
-        android:layout_width="363dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:checkedButton="@id/rbCanafistula"
+        android:checkedButton="@id/rbCana"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1">
+        app:layout_constraintTop_toBottomOf="@id/divider">
 
         <RadioButton
-            android:id="@+id/rbCanafistula"
+            android:id="@+id/rbCana"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cana" />
@@ -98,5 +72,19 @@
             android:text="@string/samambaia" />
 
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/rgPredios" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/confirmar"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

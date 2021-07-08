@@ -48,7 +48,7 @@ public class FestasActivity extends AppCompatActivity {
                     case R.id.rbHibisco:
                         textView.setText(R.string.hibisco);
                         break;
-                    case R.id.rbCanafistula:
+                    case R.id.rbCana:
                         textView.setText(R.string.cana);
                         break;
                 }
