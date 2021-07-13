@@ -1,21 +1,16 @@
-package com.montfel.desaglomere.ui.festas;
+package com.montfel.desaglomere.activity.festas;
 
-import android.annotation.SuppressLint;
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.montfel.desaglomere.Data;
-import com.montfel.desaglomere.Horario;
+import com.montfel.desaglomere.helper.Data;
+import com.montfel.desaglomere.helper.Horario;
 import com.montfel.desaglomere.R;
 
-import java.util.Calendar;
 import java.util.Objects;
 
 public class FestasActivity extends AppCompatActivity {

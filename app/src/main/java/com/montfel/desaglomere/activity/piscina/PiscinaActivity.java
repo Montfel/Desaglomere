@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.ui.piscina;
+package com.montfel.desaglomere.activity.piscina;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,9 +6,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.montfel.desaglomere.Data;
-import com.montfel.desaglomere.Horario;
 import com.montfel.desaglomere.R;
+import com.montfel.desaglomere.helper.Data;
+import com.montfel.desaglomere.helper.Horario;
 
 import java.util.Objects;
 
@@ -33,5 +33,7 @@ public class PiscinaActivity extends AppCompatActivity {
         horario.getTimePickerDialog().show();
     }
 
-    public void openDatePicker(View view) {data.getDatePickerDialog().show();}
+    public void openDatePicker(View view) {
+        data.getDatePickerDialog().show();
+    }
 }

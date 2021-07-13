@@ -10,12 +10,12 @@ import android.widget.ImageButton;
 import androidx.fragment.app.Fragment;
 
 import com.montfel.desaglomere.R;
-import com.montfel.desaglomere.academia.AcademiaActivity;
-import com.montfel.desaglomere.ui.estudos.EstudosActivity;
-import com.montfel.desaglomere.ui.festas.FestasActivity;
-import com.montfel.desaglomere.ui.jogos.JogosActivity;
-import com.montfel.desaglomere.ui.piscina.PiscinaActivity;
-import com.montfel.desaglomere.ui.quadra.QuadraActivity;
+import com.montfel.desaglomere.activity.academia.AcademiaActivity;
+import com.montfel.desaglomere.activity.estudos.EstudosActivity;
+import com.montfel.desaglomere.activity.festas.FestasActivity;
+import com.montfel.desaglomere.activity.jogos.JogosActivity;
+import com.montfel.desaglomere.activity.piscina.PiscinaActivity;
+import com.montfel.desaglomere.activity.quadra.QuadraActivity;
 
 public class AmbientesFragment extends Fragment implements View.OnClickListener {
 

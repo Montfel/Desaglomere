@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:orientation="vertical"
-    tools:context=".academia.AcademiaActivity">
+    tools:context=".activity.academia.AcademiaActivity">
 
     <TextView
         android:id="@+id/tvDataPiscina"

@@ -1,4 +1,4 @@
-package com.montfel.desaglomere;
+package com.montfel.desaglomere.helper;
 
 import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
@@ -7,11 +7,14 @@ import android.widget.TextView;
 import java.util.Calendar;
 
 public class Horario {
+
     private TimePickerDialog timePickerDialog;
+    private TextView textView;
 
     public Horario(TextView textView) {
-        textView.setText(getTodaysHour());
-        initTimePicker(textView);
+        this.textView = textView;
+        this.textView.setText(getTodaysHour());
+        initTimePicker(this.textView);
     }
 
     public TimePickerDialog getTimePickerDialog() {

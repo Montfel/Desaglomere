@@ -1,4 +1,4 @@
-package com.montfel.desaglomere;
+package com.montfel.desaglomere.activity;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.montfel.desaglomere.R;
 import com.montfel.desaglomere.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

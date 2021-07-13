@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.ui.jogos;
+package com.montfel.desaglomere.activity.estudos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,12 +6,12 @@ import android.os.Bundle;
 
 import com.montfel.desaglomere.R;
 
-public class JogosActivity extends AppCompatActivity {
+public class EstudosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jogos);
-        getSupportActionBar().setTitle(R.string.jogos);
+        setContentView(R.layout.activity_estudos);
+        getSupportActionBar().setTitle(R.string.estudos);
     }
 }
