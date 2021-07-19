@@ -1,6 +1,6 @@
-package com.montfel.desaglomere.ui.login.data;
+package com.montfel.desaglomere.activity.login.data;
 
-import com.montfel.desaglomere.ui.login.data.model.LoggedInUser;
+import com.montfel.desaglomere.activity.login.data.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and

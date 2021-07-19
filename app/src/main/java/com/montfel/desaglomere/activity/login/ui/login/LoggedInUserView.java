@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.ui.login.ui.login;
+package com.montfel.desaglomere.activity.login.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.

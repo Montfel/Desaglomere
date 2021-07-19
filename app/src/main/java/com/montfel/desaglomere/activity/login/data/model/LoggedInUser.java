@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.ui.login.data.model;
+package com.montfel.desaglomere.activity.login.data.model;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

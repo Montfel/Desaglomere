@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.ui.login.ui.login;
+package com.montfel.desaglomere.activity.login.ui.login;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModel;
 import android.util.Patterns;
 
 import com.montfel.desaglomere.R;
-import com.montfel.desaglomere.ui.login.data.LoginRepository;
-import com.montfel.desaglomere.ui.login.data.Result;
-import com.montfel.desaglomere.ui.login.data.model.LoggedInUser;
+import com.montfel.desaglomere.activity.login.data.LoginRepository;
+import com.montfel.desaglomere.activity.login.data.Result;
+import com.montfel.desaglomere.activity.login.data.model.LoggedInUser;
 
 public class LoginViewModel extends ViewModel {
 

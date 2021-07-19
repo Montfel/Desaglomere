@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.ui.login.ui.login;
+package com.montfel.desaglomere.activity.login.ui.login;
 
 import androidx.annotation.Nullable;
 

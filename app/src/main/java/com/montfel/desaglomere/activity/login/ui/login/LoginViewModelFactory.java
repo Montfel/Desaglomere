@@ -1,11 +1,11 @@
-package com.montfel.desaglomere.ui.login.ui.login;
+package com.montfel.desaglomere.activity.login.ui.login;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import com.montfel.desaglomere.ui.login.data.LoginDataSource;
-import com.montfel.desaglomere.ui.login.data.LoginRepository;
+import com.montfel.desaglomere.activity.login.data.LoginDataSource;
+import com.montfel.desaglomere.activity.login.data.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

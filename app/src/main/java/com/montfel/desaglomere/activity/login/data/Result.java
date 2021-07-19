@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.ui.login.data;
+package com.montfel.desaglomere.activity.login.data;
 
 /**
  * A generic class that holds a result success w/ data or an error exception.
