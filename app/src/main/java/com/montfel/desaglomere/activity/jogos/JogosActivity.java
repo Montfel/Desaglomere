@@ -12,6 +12,6 @@ public class JogosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogos);
-        getSupportActionBar().setTitle(R.string.jogos);
+        setTitle(R.string.jogos);
     }
 }

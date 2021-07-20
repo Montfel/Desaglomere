@@ -12,6 +12,6 @@ public class QuadraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quadra);
-        getSupportActionBar().setTitle(R.string.quadra);
+        setTitle(R.string.quadra);
     }
 }

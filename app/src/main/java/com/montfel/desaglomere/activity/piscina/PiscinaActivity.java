@@ -22,7 +22,8 @@ public class PiscinaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_piscina);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.piscina);
+        setTitle(R.string.piscina);
+
         tvHorarioPiscina = findViewById(R.id.tvHorarioPiscina);
         tvDataPiscina = findViewById(R.id.tvDataPiscina);
         horario = new Horario(tvHorarioPiscina);

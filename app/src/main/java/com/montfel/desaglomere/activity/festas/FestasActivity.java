@@ -24,7 +24,8 @@ public class FestasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_festas);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.festas);
+        setTitle(R.string.festas);
+
         rgPredios = findViewById(R.id.rgPredios);
         textView = findViewById(R.id.textView);
         textView.setText(R.string.cana);

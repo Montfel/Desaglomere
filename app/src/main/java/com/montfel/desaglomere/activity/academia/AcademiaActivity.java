@@ -40,8 +40,7 @@ public class AcademiaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_academia);
-
-        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.academia);
+        setTitle(R.string.academia);
 
         tvHorarioAcademia = findViewById(R.id.tvHorarioPiscina);
         rvListaAcademia = findViewById(R.id.rvListaAcademia);
