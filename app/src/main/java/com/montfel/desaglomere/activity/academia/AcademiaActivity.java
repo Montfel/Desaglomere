@@ -1,7 +1,5 @@
 package com.montfel.desaglomere.activity.academia;
 
-import android.annotation.SuppressLint;
-import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -18,23 +16,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.montfel.desaglomere.R;
 import com.montfel.desaglomere.adapter.AcademiaAdapter;
-import com.montfel.desaglomere.helper.AcademiaDAO;
+import com.montfel.desaglomere.dao.AcademiaDAO;
 import com.montfel.desaglomere.helper.Horario;
 import com.montfel.desaglomere.helper.RecyclerItemClickListener;
-import com.montfel.desaglomere.model.AcademiaModel;
+import com.montfel.desaglomere.model.Academia;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Objects;
 
 public class AcademiaActivity extends AppCompatActivity {
     private TextView tvHorarioAcademia;
     private Horario horario;
     private RecyclerView rvListaAcademia;
     private AcademiaAdapter academiaAdapter;
-    private List<AcademiaModel> listaAcademia = new ArrayList<>();
-    private AcademiaModel academiaSelecionada, academiaAtual;
+    private List<Academia> listaAcademia = new ArrayList<>();
+    private Academia academiaSelecionada, academiaAtual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,13 +124,13 @@ public class AcademiaActivity extends AppCompatActivity {
 
     public void salvarTeste(View view) {
         AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
-        AcademiaModel academiaModel = new AcademiaModel();
+        Academia academia = new Academia();
         String horario = tvHorarioAcademia.getText().toString();
-        academiaModel.setHorario(horario);
+        academia.setHorario(horario);
 
         if (academiaAtual != null) {
-            academiaModel.setId(academiaAtual.getId());
-            if (academiaDAO.update(academiaModel)) {
+            academia.setId(academiaAtual.getId());
+            if (academiaDAO.update(academia)) {
                 Toast.makeText(getApplicationContext(), "Sucesso ao salvar",
                         Toast.LENGTH_SHORT).show();
             } else {
@@ -142,7 +138,7 @@ public class AcademiaActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         } else {
-            if (academiaDAO.create(academiaModel)) {
+            if (academiaDAO.create(academia)) {
                 Toast.makeText(getApplicationContext(), "Sucesso ao salvar",
                         Toast.LENGTH_SHORT).show();
             } else {

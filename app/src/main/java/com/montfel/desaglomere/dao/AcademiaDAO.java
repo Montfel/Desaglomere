@@ -1,11 +1,13 @@
-package com.montfel.desaglomere.helper;
+package com.montfel.desaglomere.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.montfel.desaglomere.model.AcademiaModel;
+import com.montfel.desaglomere.helper.DbHelper;
+import com.montfel.desaglomere.helper.IAcademiaDAO;
+import com.montfel.desaglomere.model.Academia;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +24,10 @@ public class AcademiaDAO implements IAcademiaDAO {
     }
 
     @Override
-    public boolean create(AcademiaModel academiaModel) {
+    public boolean create(Academia academia) {
 
         ContentValues cv = new ContentValues();
-        cv.put("horario", academiaModel.getHorario());
+        cv.put("horario", academia.getHorario());
 
         try {
             escreve.insert(DbHelper.TABELA_ACADEMIA, null, cv);
@@ -36,35 +38,35 @@ public class AcademiaDAO implements IAcademiaDAO {
     }
 
     @Override
-    public List<AcademiaModel> read() {
-        List<AcademiaModel> academias = new ArrayList<>();
+    public List<Academia> read() {
+        List<Academia> academias = new ArrayList<>();
 
         String sql = "SELECT * FROM " + DbHelper.TABELA_ACADEMIA + " ;";
         Cursor c = le.rawQuery(sql, null);
 
         while (c.moveToNext()) {
-            AcademiaModel academiaModel = new AcademiaModel();
+            Academia academia = new Academia();
 
             Long id = c.getLong((c.getColumnIndex("id")));
             String horario = c.getString(c.getColumnIndex("horario"));
 
-            academiaModel.setId(id);
-            academiaModel.setHorario(horario);
+            academia.setId(id);
+            academia.setHorario(horario);
 
-            academias.add(academiaModel);
+            academias.add(academia);
         }
 
         return academias;
     }
 
     @Override
-    public boolean update(AcademiaModel academiaModel) {
+    public boolean update(Academia academia) {
 
         ContentValues cv = new ContentValues();
-        cv.put("horario", academiaModel.getHorario());
+        cv.put("horario", academia.getHorario());
 
         try {
-            String[] args = {academiaModel.getId().toString()};
+            String[] args = {academia.getId().toString()};
             escreve.update(DbHelper.TABELA_ACADEMIA, cv, "id = ?", args);
         } catch (Exception e) {
             return false;
@@ -74,10 +76,10 @@ public class AcademiaDAO implements IAcademiaDAO {
     }
 
     @Override
-    public boolean delete(AcademiaModel academiaModel) {
+    public boolean delete(Academia academia) {
 
         try {
-            String[] args = {academiaModel.getId().toString()};
+            String[] args = {academia.getId().toString()};
             escreve.delete(DbHelper.TABELA_ACADEMIA, "id = ?", args);
         } catch (Exception e) {
             return false;

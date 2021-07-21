@@ -2,7 +2,7 @@ package com.montfel.desaglomere.model;
 
 import java.io.Serializable;
 
-public class AcademiaModel implements Serializable {
+public class Academia implements Serializable {
     private Long id;
     private String horario;
 

@@ -1,13 +1,13 @@
 package com.montfel.desaglomere.helper;
 
-import com.montfel.desaglomere.model.AcademiaModel;
+import com.montfel.desaglomere.model.Academia;
 
 import java.util.List;
 
 public interface IAcademiaDAO {
 
-    public boolean create (AcademiaModel academiaModel);
-    public List<AcademiaModel> read ();
-    public boolean update (AcademiaModel academiaModel);
-    public boolean delete (AcademiaModel academiaModel);
+    public boolean create (Academia academia);
+    public List<Academia> read ();
+    public boolean update (Academia academia);
+    public boolean delete (Academia academia);
 }

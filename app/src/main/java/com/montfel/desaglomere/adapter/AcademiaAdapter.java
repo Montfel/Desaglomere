@@ -8,15 +8,15 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.montfel.desaglomere.R;
-import com.montfel.desaglomere.model.AcademiaModel;
+import com.montfel.desaglomere.model.Academia;
 
 import java.util.List;
 
 public class AcademiaAdapter extends RecyclerView.Adapter<AcademiaAdapter.MyViewHolder> {
 
-    private List<AcademiaModel> listaAcademia;
+    private List<Academia> listaAcademia;
 
-    public AcademiaAdapter(List<AcademiaModel> listaAcademia) {
+    public AcademiaAdapter(List<Academia> listaAcademia) {
         this.listaAcademia = listaAcademia;
     }
 
@@ -29,7 +29,7 @@ public class AcademiaAdapter extends RecyclerView.Adapter<AcademiaAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        AcademiaModel academia = listaAcademia.get(position);
+        Academia academia = listaAcademia.get(position);
         holder.tvAcademia.setText(academia.getHorario());
     }
 
