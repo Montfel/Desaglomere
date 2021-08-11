@@ -56,7 +56,7 @@ public class AcademiaDAO implements IAcademiaDAO {
             academias.add(academia);
         }
 
-        return academias;
+        return new ArrayList<>(academias); //envia uma cópia
     }
 
     @Override
