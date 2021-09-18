@@ -1,10 +1,8 @@
 package com.montfel.desaglomere.activity.academia;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +27,6 @@ public class AcademiaActivity extends AppCompatActivity {
     private TextView tvHorarioAcademia;
     private Horario horario;
     private RecyclerView rvListaAcademia;
-    private AcademiaAdapter academiaAdapter;
     private List<Academia> listaAcademia = new ArrayList<>();
     private Academia academiaSelecionada, academiaAtual;
 
@@ -69,22 +66,18 @@ public class AcademiaActivity extends AppCompatActivity {
                                 dialog.setTitle("Confirmar exclusão");
                                 dialog.setMessage("Deseja excluir o horário " +
                                         academiaSelecionada.getHorario() + "?");
-                                dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        AcademiaDAO academiaDAO = new AcademiaDAO(
-                                                getApplicationContext());
-                                        if (academiaDAO.delete(academiaSelecionada)) {
-                                            carregarListaAcademia();
-                                            Toast.makeText(getApplicationContext(),
-                                                    "Sucesso ao excluir horário!",
-                                                    Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            Toast.makeText(getApplicationContext(),
-                                                    "Erro ao excluir horário!",
-                                                    Toast.LENGTH_SHORT).show();
-                                        }
+                                dialog.setPositiveButton("Sim", (dialog1, which) -> {
+                                    AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
 
+                                    if (academiaDAO.delete(academiaSelecionada)) {
+                                        carregarListaAcademia();
+                                        Toast.makeText(getApplicationContext(),
+                                                "Sucesso ao excluir horário!",
+                                                Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(),
+                                                "Erro ao excluir horário!",
+                                                Toast.LENGTH_SHORT).show();
                                     }
                                 });
 
@@ -101,7 +94,7 @@ public class AcademiaActivity extends AppCompatActivity {
         AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
         listaAcademia = academiaDAO.read();
 
-        academiaAdapter = new AcademiaAdapter(listaAcademia);
+        AcademiaAdapter academiaAdapter = new AcademiaAdapter(listaAcademia);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         rvListaAcademia.setLayoutManager(layoutManager);
@@ -110,6 +103,7 @@ public class AcademiaActivity extends AppCompatActivity {
                 new DividerItemDecoration(getApplicationContext(),
                         LinearLayout.VERTICAL)
         );
+
         rvListaAcademia.setAdapter(academiaAdapter);
     }
 
@@ -123,11 +117,10 @@ public class AcademiaActivity extends AppCompatActivity {
         horario.getTimePickerDialog().show();
     }
 
-    public void salvarTeste(View view) {
+    public void confirmarHorario(View view) {
         AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
         Academia academia = new Academia();
-        String horario = tvHorarioAcademia.getText().toString();
-        academia.setHorario(horario);
+        academia.setHorario(tvHorarioAcademia.getText().toString());
 
         if (academiaAtual != null) {
             academia.setId(academiaAtual.getId());

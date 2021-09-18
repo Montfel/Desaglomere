@@ -9,7 +9,7 @@ import java.util.Calendar;
 public class Horario {
 
     private TimePickerDialog timePickerDialog;
-    private TextView textView;
+    private final TextView textView;
 
     public Horario(TextView textView) {
         this.textView = textView;
@@ -28,10 +28,9 @@ public class Horario {
         return makeTimeString(hour, minute);
     }
 
-    public void initTimePicker(TextView textView) {
+    private void initTimePicker(TextView textView) {
         TimePickerDialog.OnTimeSetListener timeSetListener = (view, hourOfDay, minute) -> {
-            String time = makeTimeString(hourOfDay, minute);
-            textView.setText(time);
+            this.textView.setText(makeTimeString(hourOfDay, minute));
         };
         Calendar cal = Calendar.getInstance();
         int hour = cal.get(Calendar.HOUR_OF_DAY);
