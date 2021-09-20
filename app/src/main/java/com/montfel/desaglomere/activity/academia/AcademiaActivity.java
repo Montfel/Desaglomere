@@ -48,7 +48,8 @@ public class AcademiaActivity extends AppCompatActivity {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position,
-                                                    long id) {}
+                                                    long id) {
+                            }
 
                             @Override
                             public void onItemClick(View view, int position) {
@@ -94,8 +95,6 @@ public class AcademiaActivity extends AppCompatActivity {
         AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
         listaAcademia = academiaDAO.read();
 
-        AcademiaAdapter academiaAdapter = new AcademiaAdapter(listaAcademia);
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         rvListaAcademia.setLayoutManager(layoutManager);
         rvListaAcademia.setHasFixedSize(true);
@@ -104,7 +103,7 @@ public class AcademiaActivity extends AppCompatActivity {
                         LinearLayout.VERTICAL)
         );
 
-        rvListaAcademia.setAdapter(academiaAdapter);
+        rvListaAcademia.setAdapter(new AcademiaAdapter(listaAcademia));
     }
 
     @Override
