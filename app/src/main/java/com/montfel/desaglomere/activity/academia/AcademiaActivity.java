@@ -44,6 +44,7 @@ public class AcademiaActivity extends AppCompatActivity {
         configuraBotaoConfirmar();
         configuraHorario();
         configuraClickRecyclerView();
+        //Toast.makeText(this, "123456", Toast.LENGTH_SHORT).show();
     }
 
     private void configuraHorario() {
