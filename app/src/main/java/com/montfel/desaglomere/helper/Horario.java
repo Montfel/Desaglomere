@@ -7,14 +7,11 @@ import android.widget.TextView;
 import java.util.Calendar;
 
 public class Horario {
-
     private TimePickerDialog timePickerDialog;
-    private final TextView textView;
 
     public Horario(TextView textView) {
-        this.textView = textView;
-        this.textView.setText(getTodaysHour());
-        initTimePicker(this.textView);
+        textView.setText(getTodaysHour());
+        initTimePicker(textView);
     }
 
     public TimePickerDialog getTimePickerDialog() {
@@ -30,7 +27,7 @@ public class Horario {
 
     private void initTimePicker(TextView textView) {
         TimePickerDialog.OnTimeSetListener timeSetListener = (view, hourOfDay, minute) -> {
-            this.textView.setText(makeTimeString(hourOfDay, minute));
+            textView.setText(makeTimeString(hourOfDay, minute));
         };
         Calendar cal = Calendar.getInstance();
         int hour = cal.get(Calendar.HOUR_OF_DAY);

@@ -1,24 +1,20 @@
 package com.montfel.desaglomere.activity.festas;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.montfel.desaglomere.R;
 import com.montfel.desaglomere.helper.Data;
 import com.montfel.desaglomere.helper.Horario;
-import com.montfel.desaglomere.R;
-
-import java.util.Objects;
 
 public class FestasActivity extends AppCompatActivity {
 
     private RadioGroup rgPredios;
     private TextView textView, tvHorarioFestas, tvDataFestas;
-    private Horario horario;
-    private Data data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,32 +27,24 @@ public class FestasActivity extends AppCompatActivity {
         textView.setText(R.string.cana);
         tvHorarioFestas = findViewById(R.id.tvHorarioFestas);
         tvDataFestas = findViewById(R.id.tvDataFestas);
-        horario = new Horario(tvHorarioFestas);
-        data = new Data(tvDataFestas);
 
-        rgPredios.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rbSamambaia:
-                        textView.setText(R.string.samambaia);
-                        break;
-                    case R.id.rbHibisco:
-                        textView.setText(R.string.hibisco);
-                        break;
-                    case R.id.rbCana:
-                        textView.setText(R.string.cana);
-                        break;
-                }
+        tvHorarioFestas.setOnClickListener(v -> new Horario((TextView) v).getTimePickerDialog().show());
+
+        tvDataFestas.setOnClickListener(v -> new Data((TextView) v).getDatePickerDialog().show());
+
+
+        rgPredios.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.rbSamambaia:
+                    textView.setText(R.string.samambaia);
+                    break;
+                case R.id.rbHibisco:
+                    textView.setText(R.string.hibisco);
+                    break;
+                case R.id.rbCana:
+                    textView.setText(R.string.cana);
+                    break;
             }
         });
-    }
-
-    public void openTimePicker(View view) {
-        horario.getTimePickerDialog().show();
-    }
-
-    public void openDatePicker(View view) {
-        data.getDatePickerDialog().show();
     }
 }
