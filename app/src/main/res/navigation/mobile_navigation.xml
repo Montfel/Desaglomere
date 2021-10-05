@@ -7,8 +7,7 @@
 
     <fragment
         android:id="@+id/nav_ambientes"
-        android:name="com.montfel.desaglomere.ui.ambientes.AmbientesFragment"
+        android:name="com.montfel.desaglomerese.ui.ambientes.AmbientesFragment"
         android:label="@string/menu_ambientes"
         tools:layout="@layout/fragment_ambientes" />
-
 </navigation>
