@@ -82,8 +82,7 @@ public class AcademiaActivity extends AppCompatActivity {
                                 dialog.setTitle(R.string.confirmar_exclusao);
                                 dialog.setMessage(
                                         getString(R.string.deseja_excluir_horario) + " " +
-                                        academiaSelecionada.getHorario() +
-                                        "?");
+                                        academiaSelecionada.getHorario() + "?");
                                 dialog.setPositiveButton(R.string.yes, (dialog1, which) -> {
                                     AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
 
@@ -121,8 +120,7 @@ public class AcademiaActivity extends AppCompatActivity {
     }
 
     private void configuraRecyclerView() {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        rvListaAcademia.setLayoutManager(layoutManager);
+        rvListaAcademia.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         rvListaAcademia.setHasFixedSize(true);
 //        rvListaAcademia.addItemDecoration(new DividerItemDecoration(getApplicationContext(),
 //                LinearLayout.VERTICAL));
