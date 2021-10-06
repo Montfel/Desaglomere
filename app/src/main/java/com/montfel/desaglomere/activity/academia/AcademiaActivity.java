@@ -1,10 +1,9 @@
 package com.montfel.desaglomere.activity.academia;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,9 +28,9 @@ public class AcademiaActivity extends AppCompatActivity {
     private TextView tvHorarioAcademia;
     private Horario horario;
     private RecyclerView rvListaAcademia;
-    private AcademiaAdapter academiaAdapter;
     private List<Academia> listaAcademia = new ArrayList<>();
     private Academia academiaSelecionada, academiaAtual;
+    private Button btnConfirmarAcademia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +38,19 @@ public class AcademiaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_academia);
         setTitle(R.string.academia);
 
-        tvHorarioAcademia = findViewById(R.id.tvHorarioPiscina);
-        rvListaAcademia = findViewById(R.id.rvListaAcademia);
+        inicializaCampos();
 
         horario = new Horario(tvHorarioAcademia);
+        configuraBotaoConfirmar();
+        configuraHorario();
+        configuraClickRecyclerView();
+    }
 
+    private void configuraHorario() {
+        tvHorarioAcademia.setOnClickListener(v -> horario.getTimePickerDialog().show());
+    }
+
+    private void configuraClickRecyclerView() {
         rvListaAcademia.addOnItemTouchListener(
                 new RecyclerItemClickListener(
                         getApplicationContext(),
@@ -56,7 +63,7 @@ public class AcademiaActivity extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
                                 academiaAtual = listaAcademia.get(position);
-                                openTimePicker(view);
+                                horario.getTimePickerDialog().show();
                             }
 
                             @Override
@@ -69,23 +76,20 @@ public class AcademiaActivity extends AppCompatActivity {
                                 dialog.setTitle("Confirmar exclusão");
                                 dialog.setMessage("Deseja excluir o horário " +
                                         academiaSelecionada.getHorario() + "?");
-                                dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        AcademiaDAO academiaDAO = new AcademiaDAO(
-                                                getApplicationContext());
-                                        if (academiaDAO.delete(academiaSelecionada)) {
-                                            carregarListaAcademia();
-                                            Toast.makeText(getApplicationContext(),
-                                                    "Sucesso ao excluir horário!",
-                                                    Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            Toast.makeText(getApplicationContext(),
-                                                    "Erro ao excluir horário!",
-                                                    Toast.LENGTH_SHORT).show();
-                                        }
+                                dialog.setPositiveButton("Sim", (dialog1, which) -> {
+                                    AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
 
+                                    if (academiaDAO.delete(academiaSelecionada)) {
+                                        carregarListaAcademia();
+                                        Toast.makeText(getApplicationContext(),
+                                                "Sucesso ao excluir horário!",
+                                                Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(),
+                                                "Erro ao excluir horário!",
+                                                Toast.LENGTH_SHORT).show();
                                     }
+
                                 });
 
                                 dialog.setNegativeButton("Não", null);
@@ -97,20 +101,25 @@ public class AcademiaActivity extends AppCompatActivity {
         );
     }
 
+    private void inicializaCampos() {
+        tvHorarioAcademia = findViewById(R.id.tvHorarioPiscina);
+        rvListaAcademia = findViewById(R.id.rvListaAcademia);
+        btnConfirmarAcademia = findViewById(R.id.btnConfirmarAcademia);
+    }
+
     public void carregarListaAcademia() {
         AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
         listaAcademia = academiaDAO.read();
+        configuraRecyclerView();
+    }
 
-        academiaAdapter = new AcademiaAdapter(listaAcademia);
-
+    private void configuraRecyclerView() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         rvListaAcademia.setLayoutManager(layoutManager);
         rvListaAcademia.setHasFixedSize(true);
-        rvListaAcademia.addItemDecoration(
-                new DividerItemDecoration(getApplicationContext(),
-                        LinearLayout.VERTICAL)
-        );
-        rvListaAcademia.setAdapter(academiaAdapter);
+        rvListaAcademia.addItemDecoration(new DividerItemDecoration(getApplicationContext(),
+                        LinearLayout.VERTICAL));
+        rvListaAcademia.setAdapter(new AcademiaAdapter(listaAcademia));
     }
 
     @Override
@@ -119,35 +128,32 @@ public class AcademiaActivity extends AppCompatActivity {
         super.onStart();
     }
 
-    public void openTimePicker(View view) {
-        horario.getTimePickerDialog().show();
-    }
+    public void configuraBotaoConfirmar() {
+        btnConfirmarAcademia.setOnClickListener(v -> {
+            AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
+            Academia academia = new Academia();
+            academia.setHorario(tvHorarioAcademia.getText().toString());
 
-    public void salvarTeste(View view) {
-        AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
-        Academia academia = new Academia();
-        String horario = tvHorarioAcademia.getText().toString();
-        academia.setHorario(horario);
-
-        if (academiaAtual != null) {
-            academia.setId(academiaAtual.getId());
-            if (academiaDAO.update(academia)) {
-                Toast.makeText(getApplicationContext(), "Sucesso ao salvar",
-                        Toast.LENGTH_SHORT).show();
+            if (academiaAtual != null) {
+                academia.setId(academiaAtual.getId());
+                if (academiaDAO.update(academia)) {
+                    Toast.makeText(getApplicationContext(), "Sucesso ao salvar",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Erro ao salvar tarefa",
+                            Toast.LENGTH_SHORT).show();
+                }
             } else {
-                Toast.makeText(getApplicationContext(), "Erro ao salvar tarefa",
-                        Toast.LENGTH_SHORT).show();
+                if (academiaDAO.create(academia)) {
+                    Toast.makeText(getApplicationContext(), "Sucesso ao salvar",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Erro ao salvar tarefa",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
-        } else {
-            if (academiaDAO.create(academia)) {
-                Toast.makeText(getApplicationContext(), "Sucesso ao salvar",
-                        Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getApplicationContext(), "Erro ao salvar tarefa",
-                        Toast.LENGTH_SHORT).show();
-            }
-        }
-        carregarListaAcademia();
-        academiaAtual = null;
+            carregarListaAcademia();
+            academiaAtual = null;
+        });
     }
 }

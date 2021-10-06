@@ -7,11 +7,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.montfel.desaglomere.R;
 import com.montfel.desaglomere.helper.Data;
 import com.montfel.desaglomere.helper.Horario;
-import com.montfel.desaglomere.R;
-
-import java.util.Objects;
 
 public class FestasActivity extends AppCompatActivity {
 

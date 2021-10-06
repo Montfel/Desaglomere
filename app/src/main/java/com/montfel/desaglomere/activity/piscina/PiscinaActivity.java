@@ -10,8 +10,6 @@ import com.montfel.desaglomere.R;
 import com.montfel.desaglomere.helper.Data;
 import com.montfel.desaglomere.helper.Horario;
 
-import java.util.Objects;
-
 public class PiscinaActivity extends AppCompatActivity {
 
     private TextView tvHorarioPiscina, tvDataPiscina;
