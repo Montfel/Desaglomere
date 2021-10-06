@@ -34,7 +34,6 @@
         android:id="@+id/btnConfirmarAcademia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="configuraBotaoConfirmar"
         android:text="@string/confirmar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,20 +1,20 @@
-package com.montfel.desaglomere.activity;
+package com.montfel.desaglomere;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
+import android.view.Menu;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.navigation.NavigationView;
+
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
-import com.montfel.desaglomere.R;
 import com.montfel.desaglomere.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,11 +43,12 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_ambientes)
-                .setDrawerLayout(drawer)
+                .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        Toast.makeText(this, "olaaaaa", Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -26,16 +26,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.academia.AcademiaActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".activity.login.ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name=".activity.MainActivity"
+            android:name=".MainActivity"
+            android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Desaglomere.NoActionBar"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:theme="@style/Theme.Desaglomere.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

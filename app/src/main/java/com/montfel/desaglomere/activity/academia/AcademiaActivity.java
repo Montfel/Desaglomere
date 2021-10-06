@@ -26,25 +26,24 @@ import java.util.List;
 
 public class AcademiaActivity extends AppCompatActivity {
     private TextView tvHorarioAcademia;
+    private Horario horario;
     private RecyclerView rvListaAcademia;
     private List<Academia> listaAcademia = new ArrayList<>();
     private Academia academiaSelecionada, academiaAtual;
-    private Horario horario;
     private Button btnConfirmarAcademia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_academia);
         setTitle(R.string.academia);
 
         inicializaCampos();
+
         horario = new Horario(tvHorarioAcademia);
         configuraBotaoConfirmar();
         configuraHorario();
         configuraClickRecyclerView();
-        //Toast.makeText(this, "123456", Toast.LENGTH_SHORT).show();
     }
 
     private void configuraHorario() {
@@ -59,8 +58,7 @@ public class AcademiaActivity extends AppCompatActivity {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position,
-                                                    long id) {
-                            }
+                                                    long id) {}
 
                             @Override
                             public void onItemClick(View view, int position) {
@@ -82,7 +80,7 @@ public class AcademiaActivity extends AppCompatActivity {
                                     AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
 
                                     if (academiaDAO.delete(academiaSelecionada)) {
-                                        carregaListaAcademia();
+                                        carregarListaAcademia();
                                         Toast.makeText(getApplicationContext(),
                                                 "Sucesso ao excluir horário!",
                                                 Toast.LENGTH_SHORT).show();
@@ -91,6 +89,7 @@ public class AcademiaActivity extends AppCompatActivity {
                                                 "Erro ao excluir horário!",
                                                 Toast.LENGTH_SHORT).show();
                                     }
+
                                 });
 
                                 dialog.setNegativeButton("Não", null);
@@ -108,7 +107,7 @@ public class AcademiaActivity extends AppCompatActivity {
         btnConfirmarAcademia = findViewById(R.id.btnConfirmarAcademia);
     }
 
-    public void carregaListaAcademia() {
+    public void carregarListaAcademia() {
         AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
         listaAcademia = academiaDAO.read();
         configuraRecyclerView();
@@ -119,13 +118,13 @@ public class AcademiaActivity extends AppCompatActivity {
         rvListaAcademia.setLayoutManager(layoutManager);
         rvListaAcademia.setHasFixedSize(true);
         rvListaAcademia.addItemDecoration(new DividerItemDecoration(getApplicationContext(),
-                LinearLayout.VERTICAL));
+                        LinearLayout.VERTICAL));
         rvListaAcademia.setAdapter(new AcademiaAdapter(listaAcademia));
     }
 
     @Override
     protected void onStart() {
-        carregaListaAcademia();
+        carregarListaAcademia();
         super.onStart();
     }
 
@@ -153,7 +152,7 @@ public class AcademiaActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 }
             }
-            carregaListaAcademia();
+            carregarListaAcademia();
             academiaAtual = null;
         });
     }

@@ -10,5 +10,4 @@
         android:name="com.montfel.desaglomere.ui.ambientes.AmbientesFragment"
         android:label="@string/menu_ambientes"
         tools:layout="@layout/fragment_ambientes" />
-
 </navigation>

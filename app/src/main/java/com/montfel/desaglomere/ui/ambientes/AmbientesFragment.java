@@ -54,8 +54,20 @@ public class AmbientesFragment extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ambientes, container, false);
-        inicializaCampos(view);
-        deixaCamposClicaveis();
+        imgbtnAcademia = view.findViewById(R.id.imgbtnAcademia);
+        imgbtnQuadra = view.findViewById(R.id.imgbtnQuadra);
+        imgbtnPiscina = view.findViewById(R.id.imgbtnPiscina);
+        imgbtnFestas = view.findViewById(R.id.imgbtnFestas);
+        imgbtnJogos = view.findViewById(R.id.imgbtnJogos);
+        imgbtnEstudos = view.findViewById(R.id.imgbtnEstudos);
+
+        imgbtnAcademia.setOnClickListener(this);
+        imgbtnQuadra.setOnClickListener(this);
+        imgbtnPiscina.setOnClickListener(this);
+        imgbtnFestas.setOnClickListener(this);
+        imgbtnJogos.setOnClickListener(this);
+        imgbtnEstudos.setOnClickListener(this);
+
         return view;
     }
 
@@ -81,23 +93,5 @@ public class AmbientesFragment extends Fragment implements View.OnClickListener 
                 startActivity(new Intent(getContext(), EstudosActivity.class));
                 break;
         }
-    }
-
-    private void inicializaCampos(View view) {
-        imgbtnAcademia = view.findViewById(R.id.imgbtnAcademia);
-        imgbtnQuadra = view.findViewById(R.id.imgbtnQuadra);
-        imgbtnPiscina = view.findViewById(R.id.imgbtnPiscina);
-        imgbtnFestas = view.findViewById(R.id.imgbtnFestas);
-        imgbtnJogos = view.findViewById(R.id.imgbtnJogos);
-        imgbtnEstudos = view.findViewById(R.id.imgbtnEstudos);
-    }
-
-    private void deixaCamposClicaveis() {
-        imgbtnAcademia.setOnClickListener(this);
-        imgbtnQuadra.setOnClickListener(this);
-        imgbtnPiscina.setOnClickListener(this);
-        imgbtnFestas.setOnClickListener(this);
-        imgbtnJogos.setOnClickListener(this);
-        imgbtnEstudos.setOnClickListener(this);
     }
 }
