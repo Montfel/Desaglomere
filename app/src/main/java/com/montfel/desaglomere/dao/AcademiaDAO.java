@@ -48,7 +48,7 @@ public class AcademiaDAO implements IAcademiaDAO {
             Academia academia = new Academia();
 
             Long id = c.getLong((c.getColumnIndex("id")));
-            String horario = c.getString(c.getColumnIndex("horario"));
+            String horario = c.getString((c.getColumnIndex("horario")));
 
             academia.setId(id);
             academia.setHorario(horario);

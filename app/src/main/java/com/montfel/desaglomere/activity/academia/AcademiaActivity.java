@@ -46,6 +46,12 @@ public class AcademiaActivity extends AppCompatActivity {
         configuraClickRecyclerView();
     }
 
+    @Override
+    protected void onStart() {
+        carregarListaAcademia();
+        super.onStart();
+    }
+
     private void configuraHorario() {
         tvHorarioAcademia.setOnClickListener(v -> horario.getTimePickerDialog().show());
     }
@@ -73,9 +79,11 @@ public class AcademiaActivity extends AppCompatActivity {
                                 AlertDialog.Builder dialog = new AlertDialog.Builder(
                                         AcademiaActivity.this);
 
-                                dialog.setTitle("Confirmar exclusão");
-                                dialog.setMessage("Deseja excluir o horário " +
-                                        academiaSelecionada.getHorario() + "?");
+                                dialog.setTitle(R.string.confirmar_exclusao);
+                                dialog.setMessage(
+                                        getString(R.string.deseja_excluir_horario) + " " +
+                                        academiaSelecionada.getHorario() +
+                                        "?");
                                 dialog.setPositiveButton(R.string.yes, (dialog1, which) -> {
                                     AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
 
@@ -89,7 +97,6 @@ public class AcademiaActivity extends AppCompatActivity {
                                                 R.string.error,
                                                 Toast.LENGTH_SHORT).show();
                                     }
-
                                 });
 
                                 dialog.setNegativeButton(R.string.no, null);
@@ -117,15 +124,9 @@ public class AcademiaActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         rvListaAcademia.setLayoutManager(layoutManager);
         rvListaAcademia.setHasFixedSize(true);
-        rvListaAcademia.addItemDecoration(new DividerItemDecoration(getApplicationContext(),
-                        LinearLayout.VERTICAL));
+//        rvListaAcademia.addItemDecoration(new DividerItemDecoration(getApplicationContext(),
+//                LinearLayout.VERTICAL));
         rvListaAcademia.setAdapter(new AcademiaAdapter(listaAcademia));
-    }
-
-    @Override
-    protected void onStart() {
-        carregarListaAcademia();
-        super.onStart();
     }
 
     public void configuraBotaoConfirmar() {
@@ -151,7 +152,8 @@ public class AcademiaActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), R.string.error,
                             Toast.LENGTH_SHORT).show();
                 }
-            }            carregarListaAcademia();
+            }
+            carregarListaAcademia();
             academiaAtual = null;
         });
     }
