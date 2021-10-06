@@ -76,23 +76,23 @@ public class AcademiaActivity extends AppCompatActivity {
                                 dialog.setTitle("Confirmar exclusão");
                                 dialog.setMessage("Deseja excluir o horário " +
                                         academiaSelecionada.getHorario() + "?");
-                                dialog.setPositiveButton("Sim", (dialog1, which) -> {
+                                dialog.setPositiveButton(R.string.yes, (dialog1, which) -> {
                                     AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
 
                                     if (academiaDAO.delete(academiaSelecionada)) {
                                         carregarListaAcademia();
                                         Toast.makeText(getApplicationContext(),
-                                                "Sucesso ao excluir horário!",
+                                                R.string.sucess,
                                                 Toast.LENGTH_SHORT).show();
                                     } else {
                                         Toast.makeText(getApplicationContext(),
-                                                "Erro ao excluir horário!",
+                                                R.string.error,
                                                 Toast.LENGTH_SHORT).show();
                                     }
 
                                 });
 
-                                dialog.setNegativeButton("Não", null);
+                                dialog.setNegativeButton(R.string.no, null);
                                 dialog.create();
                                 dialog.show();
                             }
@@ -137,22 +137,21 @@ public class AcademiaActivity extends AppCompatActivity {
             if (academiaAtual != null) {
                 academia.setId(academiaAtual.getId());
                 if (academiaDAO.update(academia)) {
-                    Toast.makeText(getApplicationContext(), "Sucesso ao salvar",
+                    Toast.makeText(getApplicationContext(), R.string.sucess,
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Erro ao salvar tarefa",
+                    Toast.makeText(getApplicationContext(), R.string.error,
                             Toast.LENGTH_SHORT).show();
                 }
             } else {
                 if (academiaDAO.create(academia)) {
-                    Toast.makeText(getApplicationContext(), "Sucesso ao salvar",
+                    Toast.makeText(getApplicationContext(), R.string.sucess,
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Erro ao salvar tarefa",
+                    Toast.makeText(getApplicationContext(), R.string.error,
                             Toast.LENGTH_SHORT).show();
                 }
-            }
-            carregarListaAcademia();
+            }            carregarListaAcademia();
             academiaAtual = null;
         });
     }

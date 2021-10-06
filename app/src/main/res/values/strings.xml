@@ -20,9 +20,11 @@
     <string name="cana">Canafístula</string>
     <string name="hibisco">Hibisco</string>
 
-    <string name="confirmar">Confirmar</string>
+    <string name="confirm">Confirmar</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="sucess">Sucesso</string>
+    <string name="error">Erro</string>
+
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
 </resources>
