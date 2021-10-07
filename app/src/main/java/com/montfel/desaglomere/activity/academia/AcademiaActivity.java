@@ -5,11 +5,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,33 +32,67 @@ public class AcademiaActivity extends AppCompatActivity {
     private List<Academia> listaAcademia = new ArrayList<>();
     private Academia academiaSelecionada, academiaAtual;
     private Button btnConfirmarAcademia;
+    private AcademiaDAO academiaDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_academia);
         setTitle(R.string.academia);
-
         inicializaCampos();
-
-        horario = new Horario(tvHorarioAcademia);
         configuraBotaoConfirmar();
         configuraHorario();
-        configuraClickRecyclerView();
-        Log.i("teste", "onCreate: pegoou ");
+        configuraRecyclerView();
     }
 
     @Override
     protected void onStart() {
-        carregarListaAcademia();
         super.onStart();
+        carregarListaAcademia();
     }
 
     private void configuraHorario() {
         tvHorarioAcademia.setOnClickListener(v -> horario.getTimePickerDialog().show());
     }
 
-    private void configuraClickRecyclerView() {
+    private void configuraDialog() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(
+                AcademiaActivity.this);
+
+        dialog.setTitle(R.string.confirmar_exclusao);
+
+        dialog.setMessage(
+                getString(R.string.deseja_excluir_horario) + " " +
+                        academiaSelecionada.getHorario() + "?");
+
+        dialog.setPositiveButton(R.string.yes, (dialog1, which) -> {
+            realizaOperacao(academiaDAO.delete(academiaSelecionada));
+        });
+
+        dialog.setNegativeButton(R.string.no, null);
+
+        dialog.create();
+        dialog.show();
+    }
+
+    private void inicializaCampos() {
+        tvHorarioAcademia = findViewById(R.id.tvHorarioAcademia);
+        rvListaAcademia = findViewById(R.id.rvListaAcademia);
+        btnConfirmarAcademia = findViewById(R.id.btnConfirmarAcademia);
+        horario = new Horario(tvHorarioAcademia);
+        academiaDAO = new AcademiaDAO(getApplicationContext());
+    }
+
+    public void carregarListaAcademia() {
+        listaAcademia = academiaDAO.read();
+        rvListaAcademia.setAdapter(new AcademiaAdapter(listaAcademia));
+    }
+
+    private void configuraRecyclerView() {
+        rvListaAcademia.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        rvListaAcademia.setHasFixedSize(true);
+        rvListaAcademia.addItemDecoration(new DividerItemDecoration(getApplicationContext(),
+                LinearLayout.VERTICAL));
         rvListaAcademia.addOnItemTouchListener(
                 new RecyclerItemClickListener(
                         getApplicationContext(),
@@ -82,50 +118,8 @@ public class AcademiaActivity extends AppCompatActivity {
         );
     }
 
-    private void configuraDialog() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(
-                AcademiaActivity.this);
-
-        dialog.setTitle(R.string.confirmar_exclusao);
-
-        dialog.setMessage(
-                getString(R.string.deseja_excluir_horario) + " " +
-                academiaSelecionada.getHorario() + "?");
-
-        dialog.setPositiveButton(R.string.yes, (dialog1, which) -> {
-            AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
-            realizaOperacao(academiaDAO.delete(academiaSelecionada));
-        });
-
-        dialog.setNegativeButton(R.string.no, null);
-
-        dialog.create();
-        dialog.show();
-    }
-
-    private void inicializaCampos() {
-        tvHorarioAcademia = findViewById(R.id.tvHorarioPiscina);
-        rvListaAcademia = findViewById(R.id.rvListaAcademia);
-        btnConfirmarAcademia = findViewById(R.id.btnConfirmarAcademia);
-    }
-
-    public void carregarListaAcademia() {
-        AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
-        listaAcademia = academiaDAO.read();
-        configuraRecyclerView();
-    }
-
-    private void configuraRecyclerView() {
-        rvListaAcademia.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        rvListaAcademia.setHasFixedSize(true);
-//        rvListaAcademia.addItemDecoration(new DividerItemDecoration(getApplicationContext(),
-//                LinearLayout.VERTICAL));
-        rvListaAcademia.setAdapter(new AcademiaAdapter(listaAcademia));
-    }
-
     public void configuraBotaoConfirmar() {
         btnConfirmarAcademia.setOnClickListener(v -> {
-            AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
             Academia academia = new Academia();
             academia.setHorario(tvHorarioAcademia.getText().toString());
 
@@ -142,10 +136,10 @@ public class AcademiaActivity extends AppCompatActivity {
 
     private void realizaOperacao(boolean b) {
         if (b) {
+            carregarListaAcademia();
             Toast.makeText(getApplicationContext(), R.string.sucess, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getApplicationContext(), R.string.error, Toast.LENGTH_SHORT).show();
         }
-        carregarListaAcademia();
     }
 }
