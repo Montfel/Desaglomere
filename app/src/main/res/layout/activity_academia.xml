@@ -9,7 +9,7 @@
     tools:context=".activity.academia.AcademiaActivity">
 
     <TextView
-        android:id="@+id/tvHorarioPiscina"
+        android:id="@+id/tvHorarioAcademia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnConfirmarAcademia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHorarioPiscina" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHorarioAcademia" />
 
     <Button
         android:id="@+id/btnConfirmarAcademia"
