@@ -1,16 +1,15 @@
 package com.montfel.desaglomere.activity.academia;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,6 +43,7 @@ public class AcademiaActivity extends AppCompatActivity {
         configuraBotaoConfirmar();
         configuraHorario();
         configuraClickRecyclerView();
+        Log.i("teste", "onCreate: pegoou ");
     }
 
     @Override
@@ -75,36 +75,32 @@ public class AcademiaActivity extends AppCompatActivity {
                             @Override
                             public void onLongItemClick(View view, int position) {
                                 academiaSelecionada = listaAcademia.get(position);
-
-                                AlertDialog.Builder dialog = new AlertDialog.Builder(
-                                        AcademiaActivity.this);
-
-                                dialog.setTitle(R.string.confirmar_exclusao);
-                                dialog.setMessage(
-                                        getString(R.string.deseja_excluir_horario) + " " +
-                                        academiaSelecionada.getHorario() + "?");
-                                dialog.setPositiveButton(R.string.yes, (dialog1, which) -> {
-                                    AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
-
-                                    if (academiaDAO.delete(academiaSelecionada)) {
-                                        carregarListaAcademia();
-                                        Toast.makeText(getApplicationContext(),
-                                                R.string.sucess,
-                                                Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        Toast.makeText(getApplicationContext(),
-                                                R.string.error,
-                                                Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-
-                                dialog.setNegativeButton(R.string.no, null);
-                                dialog.create();
-                                dialog.show();
+                                configuraDialog();
                             }
                         }
                 )
         );
+    }
+
+    private void configuraDialog() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(
+                AcademiaActivity.this);
+
+        dialog.setTitle(R.string.confirmar_exclusao);
+
+        dialog.setMessage(
+                getString(R.string.deseja_excluir_horario) + " " +
+                academiaSelecionada.getHorario() + "?");
+
+        dialog.setPositiveButton(R.string.yes, (dialog1, which) -> {
+            AcademiaDAO academiaDAO = new AcademiaDAO(getApplicationContext());
+            realizaOperacao(academiaDAO.delete(academiaSelecionada));
+        });
+
+        dialog.setNegativeButton(R.string.no, null);
+
+        dialog.create();
+        dialog.show();
     }
 
     private void inicializaCampos() {
@@ -135,24 +131,21 @@ public class AcademiaActivity extends AppCompatActivity {
 
             if (academiaAtual != null) {
                 academia.setId(academiaAtual.getId());
-                if (academiaDAO.update(academia)) {
-                    Toast.makeText(getApplicationContext(), R.string.sucess,
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), R.string.error,
-                            Toast.LENGTH_SHORT).show();
-                }
+                realizaOperacao(academiaDAO.update(academia));
             } else {
-                if (academiaDAO.create(academia)) {
-                    Toast.makeText(getApplicationContext(), R.string.sucess,
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), R.string.error,
-                            Toast.LENGTH_SHORT).show();
-                }
+                realizaOperacao(academiaDAO.create(academia));
             }
-            carregarListaAcademia();
+
             academiaAtual = null;
         });
+    }
+
+    private void realizaOperacao(boolean b) {
+        if (b) {
+            Toast.makeText(getApplicationContext(), R.string.sucess, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.error, Toast.LENGTH_SHORT).show();
+        }
+        carregarListaAcademia();
     }
 }
