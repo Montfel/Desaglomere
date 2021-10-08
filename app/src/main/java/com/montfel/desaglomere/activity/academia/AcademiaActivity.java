@@ -56,23 +56,16 @@ public class AcademiaActivity extends AppCompatActivity {
     }
 
     private void configuraDialog() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(
-                AcademiaActivity.this);
-
-        dialog.setTitle(R.string.confirmar_exclusao);
-
-        dialog.setMessage(
-                getString(R.string.deseja_excluir_horario) + " " +
-                        academiaSelecionada.getHorario() + "?");
-
-        dialog.setPositiveButton(R.string.yes, (dialog1, which) -> {
-            realizaOperacao(academiaDAO.delete(academiaSelecionada));
-        });
-
-        dialog.setNegativeButton(R.string.no, null);
-
-        dialog.create();
-        dialog.show();
+        new AlertDialog
+                .Builder(AcademiaActivity.this)
+                .setTitle(R.string.confirmar_exclusao)
+                .setMessage(getString(R.string.deseja_excluir_horario) + " " + 
+                        academiaSelecionada.getHorario() + "?")
+                .setPositiveButton(R.string.yes, (dialog1, which) ->
+                        realizaOperacao(academiaDAO.delete(academiaSelecionada)))
+                .setNegativeButton(R.string.no, null)
+                .create()
+                .show();
     }
 
     private void inicializaCampos() {
