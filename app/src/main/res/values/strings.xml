@@ -28,5 +28,6 @@
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="confirmar_exclusao">Confirmar exclusão</string>
-    <string name="deseja_excluir_horario">Deseja excluir o horário</string>
+    <string name="deseja_excluir_horario">Deseja excluir o horário\ </string>
+    <string name="schedule_appointment">Marcar horario</string>
 </resources>

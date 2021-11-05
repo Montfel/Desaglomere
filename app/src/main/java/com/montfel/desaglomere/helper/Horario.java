@@ -27,9 +27,8 @@ public class Horario {
     }
 
     public void initTimePicker(TextView textView) {
-        TimePickerDialog.OnTimeSetListener timeSetListener = (view, hourOfDay, minute) -> {
-            textView.setText(makeTimeString(hourOfDay, minute));
-        };
+        TimePickerDialog.OnTimeSetListener timeSetListener = (view, hourOfDay, minute) ->
+                textView.setText(makeTimeString(hourOfDay, minute));
         Calendar cal = Calendar.getInstance();
         int hour = cal.get(Calendar.HOUR_OF_DAY);
         int minute = cal.get(Calendar.MINUTE);

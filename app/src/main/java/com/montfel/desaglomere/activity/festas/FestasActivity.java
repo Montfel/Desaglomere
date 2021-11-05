@@ -32,20 +32,17 @@ public class FestasActivity extends AppCompatActivity {
         horario = new Horario(tvHorarioFestas);
         data = new Data(tvDataFestas);
 
-        rgPredios.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rbSamambaia:
-                        textView.setText(R.string.samambaia);
-                        break;
-                    case R.id.rbHibisco:
-                        textView.setText(R.string.hibisco);
-                        break;
-                    case R.id.rbCana:
-                        textView.setText(R.string.cana);
-                        break;
-                }
+        rgPredios.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.rbSamambaia:
+                    textView.setText(R.string.samambaia);
+                    break;
+                case R.id.rbHibisco:
+                    textView.setText(R.string.hibisco);
+                    break;
+                case R.id.rbCana:
+                    textView.setText(R.string.cana);
+                    break;
             }
         });
     }

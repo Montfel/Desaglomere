@@ -14,7 +14,7 @@ import java.util.List;
 
 public class AcademiaAdapter extends RecyclerView.Adapter<AcademiaAdapter.MyViewHolder> {
 
-    private List<Academia> listaAcademia;
+    private final List<Academia> listaAcademia;
 
     public AcademiaAdapter(List<Academia> listaAcademia) {
         this.listaAcademia = listaAcademia;
@@ -40,7 +40,7 @@ public class AcademiaAdapter extends RecyclerView.Adapter<AcademiaAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvAcademia;
+        final TextView tvAcademia;
 
         public MyViewHolder(View itemView) {
             super(itemView);

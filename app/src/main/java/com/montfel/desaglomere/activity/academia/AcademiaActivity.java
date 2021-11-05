@@ -1,7 +1,6 @@
 package com.montfel.desaglomere.activity.academia;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -59,9 +58,8 @@ public class AcademiaActivity extends AppCompatActivity {
         new AlertDialog
                 .Builder(AcademiaActivity.this)
                 .setTitle(R.string.confirmar_exclusao)
-                .setMessage(getString(R.string.deseja_excluir_horario) + " " + 
-                        academiaSelecionada.getHorario() + "?")
-                .setPositiveButton(R.string.yes, (dialog1, which) ->
+                .setMessage(getString(R.string.deseja_excluir_horario) + academiaSelecionada.getHorario() + "?")
+                .setPositiveButton(R.string.yes, (dialog, which) ->
                         realizaOperacao(academiaDAO.delete(academiaSelecionada)))
                 .setNegativeButton(R.string.no, null)
                 .create()

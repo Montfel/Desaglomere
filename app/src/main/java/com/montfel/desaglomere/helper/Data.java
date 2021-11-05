@@ -28,9 +28,8 @@ public class Data {
     }
 
     private void initDatePicker(TextView textView) {
-        DatePickerDialog.OnDateSetListener dateSetListener = (view, year, month, dayOfMonth) -> {
-            textView.setText(makeDateString(dayOfMonth, ++month, year));
-        };
+        DatePickerDialog.OnDateSetListener dateSetListener = (view, year, month, dayOfMonth) ->
+                textView.setText(makeDateString(dayOfMonth, ++month, year));
         Calendar cal = Calendar.getInstance();
         int day = cal.get(Calendar.DAY_OF_MONTH);
         int month = cal.get(Calendar.MONTH);

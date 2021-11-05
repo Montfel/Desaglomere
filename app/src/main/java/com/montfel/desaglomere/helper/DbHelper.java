@@ -7,8 +7,9 @@ import android.util.Log;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    public static int VERSION = 1;
-    public static String NOME_DB = "DB_AMBIENTES", TABELA_ACADEMIA = "academia";
+    public static final int VERSION = 1;
+    public static final String NOME_DB = "DB_AMBIENTES";
+    public static final String TABELA_ACADEMIA = "academia";
 
     public DbHelper(Context context) {
         super(context, NOME_DB, null, VERSION);
