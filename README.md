@@ -16,61 +16,27 @@ Tabela de conteúdos
    * [Sobre o projeto](#-sobre-o-projeto)
    * [Funcionalidades](#-funcionalidades)
    * [Layout](#-layout)
-     * [Mobile](#mobile)
    * [Como executar o projeto](#-como-executar-o-projeto)
      * [Pré-requisitos](#pré-requisitos)
    * [Tecnologias](#-tecnologias)
-     * [WebSite](#user-content-website--react----typescript)
-     * [Server](#user-content-server--nodejs----typescript)
-     * [Mobile](#user-content-mobile--react-native----typescript)
    * [Autor](#-autor)
-   * [Licença](#user-content--licença)
+   * [Licença](#-licença)
 <!--te-->
 
 
 ## 💻 Sobre o projeto
 
-♻️ Ecoleta - é uma forma de conectar empresas e entidades de coleta de resíduos orgânicos e inorgânicos as pessoas que precisam descartar seus resíduos de maneira ecológica.
-
-
-Projeto desenvolvido durante a **NLW - Next Level Week** oferecida pela [Rocketseat](https://blog.rocketseat.com.br/primeira-next-level-week/).
-O NLW é uma experiência online com muito conteúdo prático, desafios e hacks onde o conteúdo fica disponível durante uma semana.
 
 ---
 
 ## ⚙️ Funcionalidades
 
-- [x] Empresas ou entidades podem se cadastrar na plataforma web enviando:
-  - [x] uma imagem do ponto de coleta
-  - [x] nome da entidade, email e whatsapp
-  - [x] e o endereço para que ele possa aparecer no mapa
-  - [x] além de selecionar um ou mais ítens de coleta: 
-    - lâmpadas
-    - pilhas e baterias
-    - papéis e papelão
-    - resíduos eletrônicos
-    - resíduos orgânicos
-    - óleo de cozinha
-
-- [x] Os usuários tem acesso ao aplicativo móvel, onde podem:
-  - [x] navegar pelo mapa para ver as instituições cadastradas
-  - [x] entrar em contato com a entidade através do E-mail ou do WhatsApp
 
 ---
 
 ## 🎨 Layout
 
-O layout da aplicação está disponível no Figma:
 
-<a href="https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/Ecoleta?node-id=136%3A546">
-  <img alt="Made by tgmarinho" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
-</a>
-
-<p align="center">
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./assets/home-mobile.png" width="200px">
-
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./assets/detalhes-mobile.svg" width="200px">
-</p>
 
 ---
 
@@ -84,32 +50,9 @@ Para você executar o aplicativo, você vai precisar de um dispositivo com o sis
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### [](https://github.com/tgmarinho/Ecoleta#mobile-react-native--typescript)**Mobile**  ([React Native](http://www.reactnative.com/)  +  [TypeScript](https://www.typescriptlang.org/))
-
--   **[Expo](https://expo.io/)**
--   **[Expo Google Fonts](https://github.com/expo/google-fonts)**
--   **[React Navigation](https://reactnavigation.org/)**
--   **[React Native Maps](https://github.com/react-native-community/react-native-maps)**
--   **[Expo Constants](https://docs.expo.io/versions/latest/sdk/constants/)**
--   **[React Native SVG](https://github.com/react-native-community/react-native-svg)**
--   **[Axios](https://github.com/axios/axios)**
--   **[Expo Location](https://docs.expo.io/versions/latest/sdk/location/)**
--   **[Expo Mail Composer](https://docs.expo.io/versions/latest/sdk/mail-composer/)**
-
-> Veja o arquivo  [package.json](https://github.com/tgmarinho/README-ecoleta/blob/master/mobile/package.json)
-
-#### [](https://github.com/tgmarinho/Ecoleta#utilit%C3%A1rios)**Utilitários**
-
--   Protótipo:  **[Figma](https://www.figma.com/)**  →  **[Protótipo (Ecoleta)](https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/Ecoleta)**
--   API:  **[IBGE API](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1)**  →  **[API de UFs](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-UFs-estadosGet)**,  **[API de Municípios](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-Municipios-estadosUFMunicipiosGet)**
--   Maps:  **[Leaflet](https://react-leaflet.js.org/en/)**
--   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**  → Extensions:  **[SQLite](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)**
--   Markdown:  **[StackEdit](https://stackedit.io/)**,  **[Markdown Emoji](https://gist.github.com/rxaviers/7360908)**
--   Commit Conventional:  **[Commitlint](https://github.com/conventional-changelog/commitlint)**
--   Teste de API:  **[Insomnia](https://insomnia.rest/)**
--   Ícones:  **[Feather Icons](https://feathericons.com/)**,  **[Font Awesome](https://fontawesome.com/)**
--   Fontes:  **[Ubuntu](https://fonts.google.com/specimen/Ubuntu)**,  **[Roboto](https://fonts.google.com/specimen/Roboto)**
-
+-   **[Java](https://www.java.com/pt-BR/)**
+-   **[Android](https://www.android.com/intl/pt-BR_br/)**
+-   **[Android Studio](https://developer.android.com/studio)**
 
 ---
 
