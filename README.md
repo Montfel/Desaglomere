@@ -14,8 +14,7 @@ Tabela de conteúdos
 =================
 <!--ts-->
    * [Sobre o projeto](#-sobre-o-projeto)
-   * [Sobre o projetoo](#-sobre-o-projetoo)
-   * [Funcionalidades](#-funcionalidades)
+   * [Sobre o projetoo Funcionalidades](#-sobre-o-projetoo-funcionalidades)
    * [Layout](#-layout)
    * [Como executar o projeto](#-como-executar-o-projeto)
      * [Pré-requisitos](#pré-requisitos)
@@ -30,7 +29,7 @@ Tabela de conteúdos
 
 ---
 
-## 💻 Sobre o projetoo
+## 💻 Sobre o projetoo Funcionalidades
 
 
 ---
