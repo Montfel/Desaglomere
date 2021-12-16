@@ -14,8 +14,7 @@ import java.util.List;
 
 public class AcademiaDAO implements IAcademiaDAO {
 
-    private final SQLiteDatabase escreve;
-    private final SQLiteDatabase le;
+    private final SQLiteDatabase escreve, le;
 
     public AcademiaDAO(Context context) {
 

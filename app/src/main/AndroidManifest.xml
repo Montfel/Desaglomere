@@ -10,25 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Desaglomere">
         <activity
-            android:name=".activity.jogos.JogosActivity"
+            android:name=".activity.JogosActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.festas.FestasActivity"
+            android:name=".activity.FestasActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.estudos.EstudosActivity"
+            android:name=".activity.EstudosActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.quadra.QuadraActivity"
+            android:name=".activity.QuadraActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.piscina.PiscinaActivity"
+            android:name=".activity.PiscinaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.academia.AcademiaActivity"
+            android:name=".activity.AcademiaActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Desaglomere.NoActionBar">

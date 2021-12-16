@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.activity.estudos;
+package com.montfel.desaglomere.activity;
 
 import android.os.Bundle;
 

@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.activity.festas;
+package com.montfel.desaglomere.activity;
 
 import android.os.Bundle;
 import android.view.View;

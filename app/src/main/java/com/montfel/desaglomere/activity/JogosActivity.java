@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.activity.quadra;
+package com.montfel.desaglomere.activity;
 
 import android.os.Bundle;
 
@@ -6,12 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.montfel.desaglomere.R;
 
-public class QuadraActivity extends AppCompatActivity {
+public class JogosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quadra);
-        setTitle(R.string.quadra);
+        setContentView(R.layout.activity_jogos);
+        setTitle(R.string.jogos);
     }
 }

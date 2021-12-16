@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:orientation="vertical"
-    tools:context=".activity.festas.FestasActivity">
+    tools:context=".activity.FestasActivity">
 
     <TextView
         android:id="@+id/tvDataFestas"

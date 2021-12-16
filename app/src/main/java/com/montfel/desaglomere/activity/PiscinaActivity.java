@@ -1,4 +1,4 @@
-package com.montfel.desaglomere.activity.piscina;
+package com.montfel.desaglomere.activity;
 
 import android.os.Bundle;
 import android.view.View;
