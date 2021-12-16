@@ -10,6 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Desaglomere">
         <activity
+            android:name=".activity.SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/AppCompat.TelaCheia">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.JogosActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -26,17 +36,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.AcademiaActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Desaglomere.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
