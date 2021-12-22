@@ -17,7 +17,6 @@ public class AcademiaDAO implements IAcademiaDAO {
     private final SQLiteDatabase escreve, le;
 
     public AcademiaDAO(Context context) {
-
         DbHelper db = new DbHelper(context);
         escreve = db.getWritableDatabase();
         le = db.getReadableDatabase();
@@ -25,7 +24,6 @@ public class AcademiaDAO implements IAcademiaDAO {
 
     @Override
     public boolean create(Academia academia) {
-
         ContentValues cv = new ContentValues();
         cv.put("horario", academia.getHorario());
 
@@ -61,7 +59,6 @@ public class AcademiaDAO implements IAcademiaDAO {
 
     @Override
     public boolean update(Academia academia) {
-
         ContentValues cv = new ContentValues();
         cv.put("horario", academia.getHorario());
 
@@ -77,7 +74,6 @@ public class AcademiaDAO implements IAcademiaDAO {
 
     @Override
     public boolean delete(Academia academia) {
-
         try {
             String[] args = {academia.getId().toString()};
             escreve.delete(DbHelper.TABELA_ACADEMIA, "id = ?", args);

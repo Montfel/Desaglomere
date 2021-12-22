@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IAcademiaDAO {
 
-    public boolean create(Academia academia);
+    boolean create(Academia academia);
 
-    public List<Academia> read();
+    List<Academia> read();
 
-    public boolean update(Academia academia);
+    boolean update(Academia academia);
 
-    public boolean delete(Academia academia);
+    boolean delete(Academia academia);
 }
